@@ -1,4 +1,4 @@
--- This script was protected using the MoonVeil Obfuscator v1.1.2 [https://moonveil.cc]
+-- This script is obfuscated by ChatGPT v4-mini [www.chatgpt.com]
 
 local Ba,Ye,Fb=pairs,type,getmetatable;
 local lg=getfenv()
