@@ -267,13 +267,13 @@ Sections.MainSection1:Toggle({
                             local giftChar = giftedFind.Character or giftedFind.CharacterAdded:Wait()
                             local giftHumanPart = giftChar:FindFirstChild("HumanoidRootPart")
                             MacLib.Options["LiveStatus"]:UpdateHeader("✅ Status | Waiting for: ".. getgenv().GiftPlayer)
-                            repeat task.wait() until ((giftHumanPart.Position - TutorialPart.Position).Magnitude) < 1
+                            repeat task.wait() until ((giftHumanPart.Position - TutorialPart.Position).Magnitude) < 3
                             MacLib.Options["LiveStatus"]:UpdateHeader("✅ Status | Gifting to: ".. getgenv().GiftPlayer)
                              for _, tool in pairs(backPack:GetChildren()) do
                                 if not getgenv().AutoGift then break end
                                 if not (
                                     string.find(tool.Name, "Seed") or 
-                                    string.find(tool.Name, "Egg") or 
+                                    string.find(tool.Name, " Egg") or 
                                     string.find(tool.Name, "Staff") or 
                                     string.find(tool.Name, "Age") or
                                     string.find(tool.Name, "Wrench") or
@@ -283,17 +283,18 @@ Sections.MainSection1:Toggle({
                                     string.find(tool.Name, "Lightning Rod") or
                                     string.find(tool.Name, "Sprinkler")
                                 ) then
+                                    print("Gifting: " .. tool.Name)
                                     if not getgenv().AutoGift then break end
                                     human:UnequipTools()
                                     MacLib.Options["LiveStatus"]:UpdateHeader("✅ Status | Waiting for: ".. getgenv().GiftPlayer)
-                                    repeat task.wait() until ((giftHumanPart.Position - TutorialPart.Position).Magnitude) < 1
+                                    repeat task.wait() until ((giftHumanPart.Position - TutorialPart.Position).Magnitude) < 3
                                     MacLib.Options["LiveStatus"]:UpdateHeader("✅ Status | Gifting to: ".. getgenv().GiftPlayer)
                                     humanRoot.CFrame = giftHumanPart.CFrame
                                     human:EquipTool(tool)
-                                    -- task.wait(1)
+                                    task.wait(0.1)
                                     local prompt = giftedFind.Character:FindFirstChildWhichIsA("ProximityPrompt", true)
                                     MacLib.Options["LiveStatus"]:UpdateHeader("✅ Status | Waiting for: ".. getgenv().GiftPlayer)
-                                    repeat task.wait() until ((giftHumanPart.Position - TutorialPart.Position).Magnitude) < 1
+                                    repeat task.wait() until ((giftHumanPart.Position - TutorialPart.Position).Magnitude) < 3
                                     MacLib.Options["LiveStatus"]:UpdateHeader("✅ Status | Gifting to: ".. getgenv().GiftPlayer)
                                     if prompt then
                                         prompt:InputHoldBegin() 
